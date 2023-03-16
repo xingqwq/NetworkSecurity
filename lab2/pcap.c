@@ -86,7 +86,7 @@ void parseTcp(struct tcp *tmpTCP, const u_char *datagram)
     tmpTCP->tcp_urp = ntohs(*(u_short *)(datagram + tcp_start + 18));
 }
 
-int parseIp(struct ip *tmpIP, const u_char *datagram)
+void parseIp(struct ip *tmpIP, const u_char *datagram)
 {
     tmpIP->ip_hlv = datagram[14];
     tmpIP->ip_tos = datagram[15];
@@ -98,15 +98,6 @@ int parseIp(struct ip *tmpIP, const u_char *datagram)
     tmpIP->ip_checksum = ntohs(*(u_short *)(datagram + 24));
     *(unsigned int *)tmpIP->ip_src = *(unsigned int *)(datagram + 26);
     *(unsigned int *)tmpIP->ip_dst = *(unsigned int *)(datagram + 30);
-
-    if (tmpIP->ip_pro == 0x06)
-    {
-        return 1;
-    }
-    else
-    {
-        return 0;
-    }
 }
 
 void parseEthernet(struct ethernet *tmpEthernet, const u_char *datagram)
@@ -150,7 +141,7 @@ void callback(u_char *arg, const struct pcap_pkthdr *pkthdr, const u_char *datag
     }
     fprintf(filePtr, "\n");
     // 解析IP帧头
-    int protocol = parseIp(&tmpIP, datagram);
+    parseIp(&tmpIP, datagram);
     char ipv4[64];
     memset(&ipv4,0,64);
     /// 输出的是点分表示
@@ -162,17 +153,19 @@ void callback(u_char *arg, const struct pcap_pkthdr *pkthdr, const u_char *datag
     fprintf(filePtr, "dst_ip: %s \n", ipv4);
 
     // 根据协议选择分析报文
-    if(protocol == 1){
+    if(tmpIP.ip_pro == 6){
         struct tcp tmpTCP;
         parseTcp(&tmpTCP,datagram);
-        fprintf(filePtr, "src_port: %u", tmpTCP.tcp_srcport);
-        fprintf(filePtr, "\ndst_port: %u\n\n", tmpTCP.tcp_dstport);
-    }else{
+        fprintf(filePtr, "src_port[TCP]: %u\n", tmpTCP.tcp_srcport);
+        fprintf(filePtr, "dst_port[TCP]: %u\n", tmpTCP.tcp_dstport);
+    }else if(tmpIP.ip_pro == 17){
         struct udp tmpUDP;
         parseUdp(&tmpUDP,datagram);
-        fprintf(filePtr, "src_port: %u", tmpUDP.udp_srcport);
-        fprintf(filePtr, "\ndst_port: %u\n\n", tmpUDP.udp_dstport);
+        fprintf(filePtr, "src_port[UDP]: %u\n", tmpUDP.udp_srcport);
+        fprintf(filePtr, "dst_port[UDP]: %u\n", tmpUDP.udp_dstport);
     }
+
+    fprintf(filePtr, "\n");    
 }
 
 char* getTime(){
