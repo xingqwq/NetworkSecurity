@@ -1,0 +1,167 @@
+过滤规则: udp
+
+cnt: 1
+Recieved time: Fri Mar 17 10:52:38 2023
+src_mac:  70 66 55 09 4e 8d
+dst_mac:  44 ec ce d2 ff c2
+src_ip: 172.20.117.75 
+dst_ip: 10.128.1.114 
+src_port[UDP]: 49559
+dst_port[UDP]: 53
+
+cnt: 2
+Recieved time: Fri Mar 17 10:52:38 2023
+src_mac:  70 66 55 09 4e 8d
+dst_mac:  44 ec ce d2 ff c2
+src_ip: 172.20.117.75 
+dst_ip: 10.128.1.114 
+src_port[UDP]: 42996
+dst_port[UDP]: 53
+
+cnt: 3
+Recieved time: Fri Mar 17 10:52:38 2023
+src_mac:  44 ec ce d2 ff c2
+dst_mac:  70 66 55 09 4e 8d
+src_ip: 10.128.1.114 
+dst_ip: 172.20.117.75 
+src_port[UDP]: 53
+dst_port[UDP]: 49559
+
+cnt: 4
+Recieved time: Fri Mar 17 10:52:38 2023
+src_mac:  44 ec ce d2 ff c2
+dst_mac:  70 66 55 09 4e 8d
+src_ip: 10.128.1.114 
+dst_ip: 172.20.117.75 
+src_port[UDP]: 53
+dst_port[UDP]: 42996
+
+cnt: 5
+Recieved time: Fri Mar 17 10:52:38 2023
+src_mac:  70 66 55 09 4e 8d
+dst_mac:  44 ec ce d2 ff c2
+src_ip: 172.20.117.75 
+dst_ip: 10.128.1.114 
+src_port[UDP]: 45722
+dst_port[UDP]: 53
+
+cnt: 6
+Recieved time: Fri Mar 17 10:52:38 2023
+src_mac:  44 ec ce d2 ff c2
+dst_mac:  70 66 55 09 4e 8d
+src_ip: 10.128.1.114 
+dst_ip: 172.20.117.75 
+src_port[UDP]: 53
+dst_port[UDP]: 45722
+
+cnt: 7
+Recieved time: Fri Mar 17 10:53:03 2023
+src_mac:  70 66 55 09 4e 8d
+dst_mac:  01 00 5e 7f ff fa
+src_ip: 172.20.117.75 
+dst_ip: 239.255.255.250 
+src_port[UDP]: 51215
+dst_port[UDP]: 1900
+
+cnt: 8
+Recieved time: Fri Mar 17 10:53:04 2023
+src_mac:  70 66 55 09 4e 8d
+dst_mac:  44 ec ce d2 ff c2
+src_ip: 172.20.117.75 
+dst_ip: 10.128.1.114 
+src_port[UDP]: 48446
+dst_port[UDP]: 53
+
+cnt: 9
+Recieved time: Fri Mar 17 10:53:04 2023
+src_mac:  70 66 55 09 4e 8d
+dst_mac:  44 ec ce d2 ff c2
+src_ip: 172.20.117.75 
+dst_ip: 10.128.1.114 
+src_port[UDP]: 39040
+dst_port[UDP]: 53
+
+cnt: 10
+Recieved time: Fri Mar 17 10:53:04 2023
+src_mac:  44 ec ce d2 ff c2
+dst_mac:  70 66 55 09 4e 8d
+src_ip: 10.128.1.114 
+dst_ip: 172.20.117.75 
+src_port[UDP]: 53
+dst_port[UDP]: 39040
+
+cnt: 11
+Recieved time: Fri Mar 17 10:53:04 2023
+src_mac:  44 ec ce d2 ff c2
+dst_mac:  70 66 55 09 4e 8d
+src_ip: 10.128.1.114 
+dst_ip: 172.20.117.75 
+src_port[UDP]: 53
+dst_port[UDP]: 48446
+
+cnt: 12
+Recieved time: Fri Mar 17 10:53:04 2023
+src_mac:  70 66 55 09 4e 8d
+dst_mac:  44 ec ce d2 ff c2
+src_ip: 172.20.117.75 
+dst_ip: 10.128.1.114 
+src_port[UDP]: 60586
+dst_port[UDP]: 53
+
+cnt: 13
+Recieved time: Fri Mar 17 10:53:04 2023
+src_mac:  44 ec ce d2 ff c2
+dst_mac:  70 66 55 09 4e 8d
+src_ip: 10.128.1.114 
+dst_ip: 172.20.117.75 
+src_port[UDP]: 53
+dst_port[UDP]: 60586
+
+cnt: 14
+Recieved time: Fri Mar 17 10:53:04 2023
+src_mac:  70 66 55 09 4e 8d
+dst_mac:  01 00 5e 7f ff fa
+src_ip: 172.20.117.75 
+dst_ip: 239.255.255.250 
+src_port[UDP]: 51215
+dst_port[UDP]: 1900
+
+cnt: 15
+Recieved time: Fri Mar 17 10:53:05 2023
+src_mac:  70 66 55 09 4e 8d
+dst_mac:  01 00 5e 7f ff fa
+src_ip: 172.20.117.75 
+dst_ip: 239.255.255.250 
+src_port[UDP]: 51215
+dst_port[UDP]: 1900
+
+cnt: 16
+Recieved time: Fri Mar 17 10:53:06 2023
+src_mac:  70 66 55 09 4e 8d
+dst_mac:  01 00 5e 7f ff fa
+src_ip: 172.20.117.75 
+dst_ip: 239.255.255.250 
+src_port[UDP]: 51215
+dst_port[UDP]: 1900
+
+cnt: 17
+Recieved time: Fri Mar 17 10:53:29 2023
+src_mac:  70 66 55 09 4e 8d
+dst_mac:  ec 38 73 c3 b0 04
+src_ip: 254.1.1.48 
+dst_ip: 151.16.69.231 
+
+cnt: 18
+Recieved time: Fri Mar 17 10:53:30 2023
+src_mac:  ec 38 73 c3 b0 04
+dst_mac:  70 66 55 09 4e 8d
+src_ip: 64.0.0.1 
+dst_ip: 0.0.0.0 
+
+cnt: 19
+Recieved time: Fri Mar 17 10:53:35 2023
+src_mac:  70 66 55 09 4e 8d
+dst_mac:  33 33 00 01 00 02
+src_ip: 0.0.0.0 
+dst_ip: 23.125.221.58 
+

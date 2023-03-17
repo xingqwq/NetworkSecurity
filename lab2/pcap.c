@@ -121,7 +121,7 @@ void callback(u_char *arg, const struct pcap_pkthdr *pkthdr, const u_char *datag
     FILE* filePtr = msg->file;
     *cnt = (*cnt)+1;
     fprintf(filePtr, "cnt: %d\n", *cnt);
-    fprintf(filePtr, "Recieved time: %s \n", ctime((const time_t *)&pkthdr->ts.tv_sec));
+    fprintf(filePtr, "Recieved time: %s", ctime((const time_t *)&pkthdr->ts.tv_sec));
 
     struct ethernet tmpE;
     struct ip tmpIP;
@@ -142,15 +142,15 @@ void callback(u_char *arg, const struct pcap_pkthdr *pkthdr, const u_char *datag
     fprintf(filePtr, "\n");
     // 解析IP帧头
     parseIp(&tmpIP, datagram);
-    char ipv4[64];
-    memset(&ipv4,0,64);
+    char ipAddr[64];
+    memset(&ipAddr,0,64);
     /// 输出的是点分表示
-    inet_ntop(AF_INET, &tmpIP.ip_src, ipv4, 64);
-    fprintf(filePtr, "src_ip: %s \n", ipv4);
+    inet_ntop(AF_INET, &tmpIP.ip_src, ipAddr, 64);
+    fprintf(filePtr, "src_ip: %s \n", ipAddr);
 
-    memset(&ipv4,0,64);
-    inet_ntop(AF_INET, &tmpIP.ip_dst, ipv4, 64);
-    fprintf(filePtr, "dst_ip: %s \n", ipv4);
+    memset(&ipAddr,0,64);
+    inet_ntop(AF_INET, &tmpIP.ip_dst, ipAddr, 64);
+    fprintf(filePtr, "dst_ip: %s \n", ipAddr);
 
     // 根据协议选择分析报文
     if(tmpIP.ip_pro == 6){
