@@ -15,11 +15,11 @@ int main(int argc, char** argv){
         printf("*********************************************\n");
     }
     // 初始化
-    libnet_t* libNetHandle = libnet_init(LIBNET_LINK_ADV, "wlp3s0", NULL);
+    libnet_t* libNetHandle = libnet_init(LIBNET_LINK_ADV, "ens33", NULL);
     libnet_ptag_t pack = 0;
 
-    unsigned char srcMac[6] = {0x70, 0x66, 0x55, 0x09, 0x4e, 0x8d}; 
-    unsigned char dstMac[6] = {0x70, 0x66, 0x55, 0x09, 0x4e, 0x8d};
+    unsigned char srcMac[6] = {0x00, 0x0C, 0x29, 0xB0, 0xE2, 0xD0}; 
+    unsigned char dstMac[6] = {0x00, 0x0C, 0x29, 0xAF, 0x6A, 0x59};
 
     char *srcIpStr = argv[1];
     int srcPort = atoi(argv[2]);                             

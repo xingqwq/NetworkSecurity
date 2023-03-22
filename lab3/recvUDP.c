@@ -31,6 +31,7 @@ int main(int argc, char **argv)
 
     while (1)
     {
+        // UDP接收数据
         char buffer[BUFFER_SIZE], strData[BUFFER_SIZE];
         memset(buffer, 0, BUFFER_SIZE);
         memset(strData,0, BUFFER_SIZE);
