@@ -120,49 +120,36 @@ void callback(u_char *arg, const struct pcap_pkthdr *pkthdr, const u_char *datag
     int* cnt = msg->cnt;
     FILE* filePtr = msg->file;
     *cnt = (*cnt)+1;
-    fprintf(filePtr, "cnt: %d\n", *cnt);
-    fprintf(filePtr, "Recieved time: %s", ctime((const time_t *)&pkthdr->ts.tv_sec));
+    fprintf(filePtr, "序号: %d\n", *cnt);
 
     struct ethernet tmpE;
     struct ip tmpIP;
 
     // 解析以太网帧头
     parseEthernet(&tmpE, datagram);
-    fprintf(filePtr, "src_mac: ");
-    for (int i = 0; i < 6; i++)
-    {
-        fprintf(filePtr, " %02x", tmpE.eth_srchost[i]);
-    }
-    fprintf(filePtr, "\n");
-    fprintf(filePtr, "dst_mac: ");
-    for (int i = 0; i < 6; i++)
-    {
-        fprintf(filePtr, " %02x", tmpE.eth_dsthost[i]);
-    }
-    fprintf(filePtr, "\n");
     // 解析IP帧头
     parseIp(&tmpIP, datagram);
     char ipAddr[64];
     memset(&ipAddr,0,64);
     /// 输出的是点分表示
     inet_ntop(AF_INET, &tmpIP.ip_src, ipAddr, 64);
-    fprintf(filePtr, "src_ip: %s \n", ipAddr);
+    fprintf(filePtr, "源IP: %s \n", ipAddr);
 
     memset(&ipAddr,0,64);
     inet_ntop(AF_INET, &tmpIP.ip_dst, ipAddr, 64);
-    fprintf(filePtr, "dst_ip: %s \n", ipAddr);
+    fprintf(filePtr, "目的IP: %s \n", ipAddr);
 
     // 根据协议选择分析报文
     if(tmpIP.ip_pro == 6){
         struct tcp tmpTCP;
         parseTcp(&tmpTCP,datagram);
-        fprintf(filePtr, "src_port[TCP]: %u\n", tmpTCP.tcp_srcport);
-        fprintf(filePtr, "dst_port[TCP]: %u\n", tmpTCP.tcp_dstport);
+        fprintf(filePtr, "源端口[TCP]: %u\n", tmpTCP.tcp_srcport);
+        fprintf(filePtr, "目的端口[TCP]: %u\n", tmpTCP.tcp_dstport);
     }else if(tmpIP.ip_pro == 17){
         struct udp tmpUDP;
         parseUdp(&tmpUDP,datagram);
-        fprintf(filePtr, "src_port[UDP]: %u\n", tmpUDP.udp_srcport);
-        fprintf(filePtr, "dst_port[UDP]: %u\n", tmpUDP.udp_dstport);
+        fprintf(filePtr, "源端口[UDP]: %u\n", tmpUDP.udp_srcport);
+        fprintf(filePtr, "目的端口[UDP]: %u\n", tmpUDP.udp_dstport);
     }
 
     fprintf(filePtr, "\n");    
@@ -272,7 +259,7 @@ int main(int argc, char *argv[])
         }
         pcap_setfilter(device, &filter);
     }
-    fprintf(filePtr, "过滤规则: %s\n\n", rule);
+    fprintf(filePtr, "Rule: %s\n\n", rule);
 
     // 开始捕获
     cnt = 0;
