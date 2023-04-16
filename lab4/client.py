@@ -99,7 +99,7 @@ else:
         recvData = serverSocket.recv(100)
         if recvData[0:3] == b'001':
             desC = DESModel()
-            recvStr = desC.decrypt(recvData, hash1Str[0:8])
+            recvStr = desC.decrypt(recvData[3:], hash1Str[0:8])
             with open("./{}_{}.txt".format(userName, int(time.time())),"w") as file:
                 file.writelines(recvStr+"\n")
             print("密码修改成功")

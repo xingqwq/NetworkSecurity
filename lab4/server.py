@@ -88,7 +88,8 @@ class Server:
                 else:
                     print("当前用户 {} 更新密码成功".format(data[0]))
                     desC = DESModel()
-                    enCode = desC.encrypt("wolaile", hashFromSql[0:8])
+                    enCode = desC.encrypt("wolaile", data[1][0:8])
+                    print(enCode)
                     client.send(b'001'+enCode)
 
 
