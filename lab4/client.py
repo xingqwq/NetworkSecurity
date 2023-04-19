@@ -90,7 +90,7 @@ else:
 
         print("所生成的散列值1为 {} \n所生成的散列值2为 {}".format(hash1Str, hash2Str))
 
-        # 将用户名，散列值2，认证码明文传送到服务器端
+        # 将用户名，散列值1，认证码明文传送到服务器端
         sendData = userName+" "+hash1Str+" "+certCode
         sendData = sendData.encode("utf-8")
         serverSocket.send(sendData)

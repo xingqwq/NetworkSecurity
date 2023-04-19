@@ -13,7 +13,7 @@ class Server:
             host="localhost",
             port=3306,
             user='root',
-            password='111',
+            password='',
             charset='utf8mb4'
         )
         
